@@ -16,6 +16,10 @@ public class ExecutorPool {
     public static void execute(Runnable runnable) {
         executorService.execute(runnable);
     }
+
+    public static <T> Future<T> submit(Callable<T> callable) {
+        return executorService.submit(callable);
+    }
 }
 
 
