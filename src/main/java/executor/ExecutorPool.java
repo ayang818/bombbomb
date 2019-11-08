@@ -11,7 +11,7 @@ import java.util.concurrent.*;
  * @Date 2019/11/7 20:20
  **/
 public class ExecutorPool {
-    private static ExecutorService executorService = new ThreadPoolExecutor(10, 20, 5L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(), new CustomizeThreadFactory(), new ThreadPoolExecutor.CallerRunsPolicy());
+    private static ExecutorService executorService = new ThreadPoolExecutor(10, 20, 5L, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1000), new CustomizeThreadFactory(), new ThreadPoolExecutor.CallerRunsPolicy());
 
     public static void execute(Runnable runnable) {
         executorService.execute(runnable);
